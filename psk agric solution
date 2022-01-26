@@ -1,0 +1,151 @@
+<?php
+// Reads the variables sent via POST from AT gateway
+$sessionID = $_POST["$sessionID"];
+$serviceCode = $_POST["$serviceCode"];
+$text = $_POST["text"];
+
+ // this is the first menu screen
+if ($text == "") {
+    $response = "CON welcome to PSK Agric online store\n";
+    $response = "CON Our products\n";
+    $response .= "1. Chickens\n";
+    $response .= "2. Eggs\n";
+
+}
+
+ // Menu for a user who selects '1' from the first menu above
+
+ // will be brought to this second menu screen
+
+else if ($text == "1"){
+    $response = "CON Our Chickens\n";
+    $response .= "1. Live chickens R80\n";
+    $response .= "2. Slaughtered chickens  R85\n";
+}
+
+ // Menu for a user who selects '1' from the second menu above
+
+ // Will be brought to this third menu screen
+
+else if ($text ==  "1*1"){
+    $response = "CON You are about to order live chicken @R80\n";
+    $response .= "Enter 1 to confirm \n";
+    $response .= "Enter 0 to cancel \n";
+}
+else if ($text == "1*1*1"){
+    $response = "END Your order had successfully been placed";
+}
+else if ($text == "1*1*0"){
+    $response = "END Your order has been canceled";
+
+}
+
+ // Menu form a user  who selects '2' from the second menu above
+
+ // Will be brought to this fourth menu screen
+
+else if ($text == "1*2"){
+    $response = "CON You are about to order slaughtered chicken @R85\n";
+    $response .= "Enter 1 to confirm \n";
+    $response .= "Enter 0 to cancel \n";
+}
+else if ($text = "1*2*1"){
+    $response = "END Your order has successfully been placed";
+}
+else if ($text == "1*2*0"){
+    $response = "END Your order has been canceled";
+}
+
+ // Menu form a user who selects '2' from the first menu
+
+ // Will be brought to this fifth menu screen
+
+else if ($text == "2"){
+    $response = "CON Our Eggs\n";
+    $response .= "1. 60 Large eggs R110\n";
+    $response .= "2. 60 Medium eggs R100\n";
+    $response .= "3. 30 Large eggs R60\n";
+    $response .= "4. 30 Medium eggs R50\n";
+
+}
+
+ // Menu for user who selects '1' from the fifth menu above
+
+ // will be brought to this sixth menu screen
+
+else if ($text == "2*1"){
+    $response = "CON YOu are about to order 60 Large eggs @R110\n";
+    $response .= "Enter 1 to confirm \n";
+    $response .= "Enter 0 to cancel \n";
+}
+else if ($text == "2*1*1"){
+    $response = "END Your order has successfully been placed";
+
+}
+else if ($text == "2*1*0"){
+    $response = "END Your order has been canceled";
+}
+
+ // Menu for user who selects '2' from the fifth menu above
+
+ // will be brought to the seventh menu screen
+
+else if ($text == "2*2"){
+    $response = "CON You are about to order 60 Medium eggs @R100\n";
+    $response .= "Enter 1 to confirm \n";
+    $response .= "Enter 0 to cancel \n";
+}
+else if ($text == "2*2*1"){
+    $response = "END Your order has successfully been placed";
+
+}
+else if ($text == "2*2*0"){
+    $response = "END Your order has been canceled";
+
+}
+
+ // Menu for user who selects '3' from the fifth menu above
+
+ // Will be brought to the seventh menu
+
+else if ($text == "2*3"){
+    $response = "CON You are about to order 30 Large eggs @R60\n";
+    $response .= "Enter 1 to confirm \n";
+    $response .= "Enter 0 to cancel \n";
+
+}
+else if ($text == "2*3*1"){
+    $response = "END Your order has successfully been placed";
+
+}
+else if ($text == "2*3*0"){
+    $response = "END Your order had been canceled";
+
+}
+
+ // Menu for user who selects '4' from the fifth menu above
+
+ // Will be brought to the eigth menu screen
+
+else if ($text == "2*4"){
+    $response = "CON You are about to order 30 medium eggs @R50 \n";
+    $response .= "Enter 1 to confirm \n";
+    $response .= "Enter 0 to cancel \n";
+
+}
+else if ($text == "2*4*1"){
+    $response = "END Your order has successfully been placed";
+
+}
+else if ($text == "2*4*0"){
+    $response = "END Your order has been canceled";
+
+}
+
+// echo response
+header('Content-type:text/plain');
+
+echo $response
+
+?>
+
